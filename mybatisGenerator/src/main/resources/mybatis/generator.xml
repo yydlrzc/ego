@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/ego"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--生成包名配置和位置配置-->
+        <javaModelGenerator targetPackage="com.bjsxt.ego.pojo" targetProject="../ego-rpc/ego-rpc-pojo/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--生成映射文件mapper.xml-->
+        <sqlMapGenerator targetPackage="com.bjsxt.ego.mapper"  targetProject="../ego-rpc/ego-rpc-mapper/src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.bjsxt.ego.mapper"  targetProject="../ego-rpc/ego-rpc-mapper/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--<table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >-->
+        <!--</table>-->
+        <table tableName="tb_content" schema=""/>
+        <table tableName="tb_content_category" schema=""/>
+        <table tableName="tb_item" schema=""/>
+        <table tableName="tb_item_cat" schema=""/>
+        <table tableName="tb_item_desc" schema=""/>
+        <table tableName="tb_item_param" schema=""/>
+        <table tableName="tb_item_param_item" schema=""/>
+        <table tableName="tb_order" schema=""/>
+        <table tableName="tb_order_item" schema=""/>
+        <table tableName="tb_order_shipping" schema=""/>
+        <table tableName="tb_user" schema=""/>
+
+    </context>
+</generatorConfiguration>

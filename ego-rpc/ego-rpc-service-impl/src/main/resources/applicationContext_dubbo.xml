@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://code.alibabatech.com/schema/dubbo
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--发布,并且注册dubbo服务-->
+    <!--1 给本次发布的服务起名字-->
+    <dubbo:application name="rpc_provider"/>
+
+    <!--2 指定注册信息的地址-->
+    <dubbo:registry protocol="zookeeper" address="192.168.114.30:2181,192.168.114.30:2182,192.168.114.30:2183"></dubbo:registry>
+
+    <!--3 指定暴露的服务的访问协议和端口-->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!--4 指定具体的服务提供者对象-->
+    <dubbo:service interface="com.bjsxt.ego.rpc.service.TbItemService" ref="tbItemServiceImpl"></dubbo:service>
+    <dubbo:service interface="com.bjsxt.ego.rpc.service.TbItemCatService" ref="tbItemCatServiceImpl"></dubbo:service>
+    <dubbo:service interface="com.bjsxt.ego.rpc.service.TbItemDescService" ref="tbItemDescServiceImpl"></dubbo:service>
+    <dubbo:service interface="com.bjsxt.ego.rpc.service.TbItemParamService" ref="tbItemParamServiceImpl"></dubbo:service>
+    <dubbo:service interface="com.bjsxt.ego.rpc.service.TbContentService" ref="tbContentServiceImpl"></dubbo:service>
+
+</beans>
