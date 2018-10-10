@@ -1,6 +1,5 @@
 package com.bjsxt.ego.rpc.service;
 
-import com.bjsxt.domain.AdResult;
 import com.bjsxt.domain.EgoResult;
 import com.bjsxt.domain.PageResult;
 import com.bjsxt.ego.pojo.TbContent;

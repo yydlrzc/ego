@@ -12,6 +12,8 @@ import com.bjsxt.ego.rpc.service.TbContentService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -64,6 +66,7 @@ public class TbContentServiceImpl implements TbContentService {
      * @param tbContent 需要保存的参数对象
      * @return 返回保存状态
      */
+    @CacheEvict(value = "contentServiceImpl",key = "89")
     @Override
     public EgoResult saveTbContent(TbContent tbContent) {
         try {
@@ -83,6 +86,7 @@ public class TbContentServiceImpl implements TbContentService {
      * @param tbContent 要更新的内容的对象
      * @return 操作结果
      */
+    @CacheEvict(value = "contentServiceImpl",key = "89")
     @Override
     public EgoResult updateTbContent(TbContent tbContent) {
         try {
@@ -101,6 +105,7 @@ public class TbContentServiceImpl implements TbContentService {
      * @param id 要删除的内容id
      * @return 操作结果
      */
+    @CacheEvict(value = "contentServiceImpl",key = "89")
     @Override
     public EgoResult deleteTbContent(Long id) {
         try {
@@ -199,6 +204,7 @@ public class TbContentServiceImpl implements TbContentService {
      * @param categoryId
      * @return
      */
+    @Cacheable(cacheNames = "contentServiceImpl",key = "#categoryId")
     @Override
     public List<TbContent> selectBigAd(Long categoryId) {
         TbContentExample example = new TbContentExample();

@@ -5,6 +5,7 @@ import com.bjsxt.ego.pojo.TbItemCat;
 import com.bjsxt.ego.pojo.TbItemCatExample;
 import com.bjsxt.ego.rpc.service.TbItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class TbItemCatServiceImpl implements TbItemCatService {
         return tbItemCatMapper.selectByExample(example);
     }
 
+    @Cacheable(cacheNames="indexCatCache",key="666")
     @Override
     public List<TbItemCat> loadTbItemCatAllList() {
         TbItemCatExample example = new TbItemCatExample();

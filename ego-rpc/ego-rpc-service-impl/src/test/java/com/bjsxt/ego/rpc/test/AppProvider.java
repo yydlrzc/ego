@@ -13,7 +13,7 @@ public class AppProvider {
         String[] configLocations=new String[]{"applicationContext_mapper.xml",
                 "applicationContext_dubbo.xml",
                 "applicationContext_service.xml",
-                "applicationContext_tx.xml"};
+                "applicationContext_tx.xml","aplicationContext_cache.xml"};
 
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext(configLocations);
         System.out.println(ac);
