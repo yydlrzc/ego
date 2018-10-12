@@ -4,7 +4,6 @@ import com.bjsxt.domain.PageResult;
 import com.bjsxt.domain.EgoResult;
 import com.bjsxt.ego.pojo.TbItem;
 import com.bjsxt.ego.pojo.TbItemDesc;
-import com.bjsxt.ego.pojo.TbItemParam;
 import com.bjsxt.ego.pojo.TbItemParamItem;
 
 import java.util.List;
@@ -55,4 +54,25 @@ public interface TbItemService {
      * @return
      */
     public EgoResult updateTbItem(TbItem tbItem, TbItemDesc tbItemDesc);
+
+    /**
+     * 加载某个id的商品信息
+     * @param itemId
+     * @return
+     */
+    public TbItem loadTbItem(Long itemId);
+
+    /**
+     * 加载商品规格参数
+     * @param itemId
+     * @return
+     */
+    public TbItemParamItem loadTbItemParam(Long itemId);
+
+    /**
+     * 加载商品描述
+     * @param itemId
+     * @return
+     */
+    public TbItemDesc loadTbItemDesc(Long itemId);
 }

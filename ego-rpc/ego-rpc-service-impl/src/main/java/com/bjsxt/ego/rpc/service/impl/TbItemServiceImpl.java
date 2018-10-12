@@ -5,13 +5,13 @@ import com.bjsxt.domain.EgoResult;
 import com.bjsxt.ego.mapper.TbItemDescMapper;
 import com.bjsxt.ego.mapper.TbItemMapper;
 import com.bjsxt.ego.mapper.TbItemParamItemMapper;
-import com.bjsxt.ego.mapper.TbItemParamMapper;
 import com.bjsxt.ego.pojo.*;
 import com.bjsxt.ego.pojo.TbItemExample.Criteria;
 import com.bjsxt.ego.rpc.service.TbItemService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -94,5 +94,27 @@ public class TbItemServiceImpl implements TbItemService {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    @Cacheable(value = "item_basc_info",key = "#itemId",sync = true)
+    public TbItem loadTbItem(Long itemId) {
+        return tbItemMapper.selectByPrimaryKey(itemId);
+    }
+
+    @Override
+    public TbItemParamItem loadTbItemParam(Long itemId) {
+        TbItemParamItemExample example = new TbItemParamItemExample();
+        example.createCriteria().andItemIdEqualTo(itemId);
+        List<TbItemParamItem> tbItemParamItems = tbItemParamItemMapper.selectByExampleWithBLOBs(example);
+        if (tbItemParamItems != null && tbItemParamItems.size() == 1) {
+            return tbItemParamItems.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public TbItemDesc loadTbItemDesc(Long itemId) {
+        return tbItemDescMapper.selectByPrimaryKey(itemId);
     }
 }

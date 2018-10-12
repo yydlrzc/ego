@@ -366,4 +366,12 @@ public class TbItem implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    public String getImages() {
+        return image.split(",")[0];
+    }
+
+    public void setImages(String image) {
+        this.image = image;
+    }
 }

@@ -8,4 +8,5 @@
 
     <dubbo:reference interface="com.bjsxt.ego.rpc.service.TbItemCatService" id="tbItemCatServiceProxy"></dubbo:reference>
     <dubbo:reference interface="com.bjsxt.ego.rpc.service.TbContentService" id="tbContentServiceProxy"></dubbo:reference>
+    <dubbo:reference interface="com.bjsxt.ego.rpc.service.TbItemService" id="tbItemServiceProxy"></dubbo:reference>
 </beans>
