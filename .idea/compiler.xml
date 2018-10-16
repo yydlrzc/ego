@@ -15,6 +15,7 @@
         <module name="ego-rpc-service" />
         <module name="ego-rpc-service-impl" />
         <module name="ego-search-web" />
+        <module name="ego-sso-web" />
         <module name="mybatisGenerator" />
       </profile>
     </annotationProcessing>

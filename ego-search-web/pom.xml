@@ -9,23 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ego-item-web</artifactId>
+    <artifactId>ego-search-web</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>com.bjsxt.ego.rpc</groupId>
-            <artifactId>ego-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.bjsxt.ego.rpc</groupId>
-            <artifactId>ego-rpc-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
             <exclusions>
                 <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
+                    <artifactId>junit</artifactId>
+                    <groupId>junit</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -34,27 +34,10 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.101tec</groupId>
-            <artifactId>zkclient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jsp-api</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
+        <!--jsp相关-->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -62,6 +45,22 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <build>
@@ -70,10 +69,11 @@
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
-                    <port>6060</port>
+                    <port>8080</port>
                     <path>/</path>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>

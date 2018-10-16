@@ -5,7 +5,8 @@
     <file type="web" url="file://$PROJECT_DIR$/ego-item-web" />
     <file type="web" url="file://$PROJECT_DIR$/ego-manager" />
     <file type="web" url="file://$PROJECT_DIR$/ego-protal-web" />
-    <file type="web" url="file://$PROJECT_DIR$/ego-rpc/ego-search-web" />
+    <file type="web" url="file://$PROJECT_DIR$/ego-search-web" />
+    <file type="web" url="file://$PROJECT_DIR$/ego-sso-web" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

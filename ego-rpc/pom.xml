@@ -16,7 +16,6 @@
         <module>ego-rpc-mapper</module>
         <module>ego-rpc-service</module>
         <module>ego-rpc-service-impl</module>
-        <module>ego-search-web</module>
     </modules>
     <dependencies>
         <dependency>

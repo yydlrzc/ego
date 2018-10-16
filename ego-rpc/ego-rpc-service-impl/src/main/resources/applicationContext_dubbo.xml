@@ -24,5 +24,6 @@
     <dubbo:service interface="com.bjsxt.ego.rpc.service.TbItemDescService" ref="tbItemDescServiceImpl"></dubbo:service>
     <dubbo:service interface="com.bjsxt.ego.rpc.service.TbItemParamService" ref="tbItemParamServiceImpl"></dubbo:service>
     <dubbo:service interface="com.bjsxt.ego.rpc.service.TbContentService" ref="tbContentServiceImpl"></dubbo:service>
+    <dubbo:service interface="com.bjsxt.ego.rpc.service.UserService" ref="userServiceImpl"></dubbo:service>
 
 </beans>
